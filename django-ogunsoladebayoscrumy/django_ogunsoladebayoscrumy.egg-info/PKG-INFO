@@ -1,0 +1,46 @@
+Metadata-Version: 1.1
+Name: django-ogunsoladebayoscrumy
+Version: 0.1
+Summary: A sample Django app to practice Django.
+Home-page: https://www.example.com/
+Author: Your Name
+Author-email: yourname@example.com
+License: BSD-3-Clause  # Example license
+Description: =====
+        ogunsoladebayoscrumy
+        =====
+        
+        ogunsoladebayoscrumy is a sample Django app to practice Django.
+        
+        Quick start
+        -----------
+        
+        1. Add "ogunsoladebayoscrumy" to your INSTALLED_APPS setting like this::
+        
+            INSTALLED_APPS = [
+                ...
+                'ogunsoladebayoscrumy',
+            ]
+        
+        2. Include the ogunsoladebayoscrumy URLconf in your project urls.py like this::
+        
+            path('ogunsoladebayoscrumy/', include('ogunsoladebayoscrumy.urls')),
+        
+        3. Run ``python manage.py migrate`` to create the ogunsoladebayoscrumy models.
+        
+        4. Visit http://127.0.0.1:8000/ogunsoladebayoscrumy/ to use the app.
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.1  # Replace "X.Y" as appropriate
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content

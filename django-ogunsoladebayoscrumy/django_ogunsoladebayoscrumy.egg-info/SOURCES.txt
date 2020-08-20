@@ -1,0 +1,16 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+django_ogunsoladebayoscrumy.egg-info/PKG-INFO
+django_ogunsoladebayoscrumy.egg-info/SOURCES.txt
+django_ogunsoladebayoscrumy.egg-info/dependency_links.txt
+django_ogunsoladebayoscrumy.egg-info/top_level.txt
+ogunsoladebayoscrumy/__init__.py
+ogunsoladebayoscrumy/admin.py
+ogunsoladebayoscrumy/apps.py
+ogunsoladebayoscrumy/models.py
+ogunsoladebayoscrumy/tests.py
+ogunsoladebayoscrumy/urls.py
+ogunsoladebayoscrumy/views.py
+ogunsoladebayoscrumy/migrations/__init__.py
