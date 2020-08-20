@@ -25,7 +25,7 @@ SECRET_KEY = '-2b1=o6n(ey$i=0)2iqzxei(cat_0mx^nchor)+(7ou9m2#*9e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['54.162.180.50']
+ALLOWED_HOSTS = ['54.81.15.98']
 
 
 # Application definition
@@ -76,11 +76,8 @@ WSGI_APPLICATION = 'myscrumy.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test',
-        'USER': 'root',
-        'PASSWORD': 'mysql',
-        'HOST': '127.0.0.1'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
