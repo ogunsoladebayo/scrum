@@ -11,8 +11,11 @@ class GoalStatus(models.Model):
     def __str__(self):
         return self.status_name
 
+    class Meta:
+        verbose_name_plural = 'GoalStatus'
 
-class ScrumyGoals(models.Model): 
+
+class ScrumyGoals(models.Model):
     goal_name = models.CharField(max_length=255)
     goal_id = models.IntegerField(unique=True)
     created_by = models.CharField(max_length=255)
@@ -25,6 +28,8 @@ class ScrumyGoals(models.Model):
     def __str__(self):
         return self.goal_name
 
+    class Meta:
+        verbose_name_plural = 'ScrumyGoals'
     ...
 
 
@@ -39,4 +44,6 @@ class ScrumyHistory(models.Model):
     def __str__(self):
         return self.created_by
 
+    class Meta:
+        verbose_name_plural = 'ScrumyHistory'
     ...

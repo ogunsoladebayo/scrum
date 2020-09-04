@@ -10,5 +10,5 @@ def get_grading_parameters(request):
 
 
 def move_goal(request, goal_id):
-    goal = ScrumyGoals.objects.filter(goal_name='Learn Django')
+    goal = ScrumyGoals.objects.get(goal_id=goal_id)
     return HttpResponse(goal)
