@@ -12,7 +12,7 @@ class GoalStatus(models.Model):
         return self.status_name
 
 
-class ScrumyGoals(models.Model):
+class ScrumyGoals(models.Model): 
     goal_name = models.CharField(max_length=255)
     goal_id = models.IntegerField(unique=True)
     created_by = models.CharField(max_length=255)
