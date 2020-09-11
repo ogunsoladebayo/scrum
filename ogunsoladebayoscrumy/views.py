@@ -11,9 +11,12 @@ def get_grading_parameters(request):
 
 
 def move_goal(request, goal_id):
-    goal = ScrumyGoals.objects.get(goal_id=goal_id)
-    return HttpResponse(goal)
-
+    try:
+        obj = ScrumyGoals.objects.get(goal_id= goal_id)
+    except Exception as e:
+        return render(request, 'ogunsoladebayoscrumy/exception.html', {'error': 'A record with that goal id does not exist'})
+    else:
+        return HttpResponse(obj.goal_name)
 
 def add_goal(request):
     status = GoalStatus.objects.get(status_name='Weekly Goal')
@@ -25,5 +28,9 @@ def add_goal(request):
 
 def home(request):
     goals = ScrumyGoals.objects.filter(goal_name='Keep Learning Django')
-    goal = ', '.join([goal.goal_name for goal in goals])
-    return(HttpResponse(goal))
+    goal_name = ', '.join([goal.goal_name for goal in goals])
+    goal_id = ', '.join([str(goal.goal_id) for goal in goals])
+    user = ScrumyGoals.objects.get(goal_name = 'Learn Django').user
+    # print
+    delimeters = {'goal_name': goal_name, 'goal_id': goal_id, 'first_name': user}
+    return render(request, 'ogunsoladebayoscrumy/home.html', delimeters)
