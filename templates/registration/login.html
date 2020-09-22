@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Login</title>
+		<link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+	</head>
+	<body>
+		<div style="margin:0 auto" class="col-sm-4">
+			<form method="POST">
+				{% csrf_token %}
+				<div class="form-group">
+					<label for="username">Username:</label>
+					<input class="form-control" name="username" placeholder="username" /> <br />
+				</div>
+				<div class="form-group">
+					<label for="goalName">Password:</label>
+					<input class="form-control" type='password' name="password" placeholder="password" /><br />
+				</div>
+				<input class="btn btn-primary" type="submit" value="Login" />
+			</form>
+		</div>
+        {% if form.errors %}
+            <p>Invalid login credentials</p>
+        {% endif %}
+		<div align="center">
+			<button class="btn btn-link"><a href=" {% url 'ogunsoladebayoscrumy:index' %} "> Index </a></button>
+		</div>
+	</body>
+</html>

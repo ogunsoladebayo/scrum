@@ -13,4 +13,6 @@ ogunsoladebayoscrumy/models.py
 ogunsoladebayoscrumy/tests.py
 ogunsoladebayoscrumy/urls.py
 ogunsoladebayoscrumy/views.py
+ogunsoladebayoscrumy/migrations/0001_initial.py
+ogunsoladebayoscrumy/migrations/0002_auto_20200905_0047.py
 ogunsoladebayoscrumy/migrations/__init__.py

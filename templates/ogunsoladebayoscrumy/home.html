@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>My Scrumy</title>
+		<link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+	</head>
+	<body>
+		<div style="padding: 2px;">
+			<ul class="nav nav-pills flex-column col-sm-3" >
+				<li class="nav-item">
+					<a class="nav-link active"> <b style="color:#66ffd9" > User: </b> {{user}} <b style="color:#66ffd9"> As: </b> {{role}}</a>
+				</li>			
+			</ul>
+			<div align='right' style="margin-top: -30px;">
+				<a href="{% url 'ogunsoladebayoscrumy:addgoal' %}"><button type='button' class='btn btn-link'> Add a new goal</button></a> 
+			</div>
+		</div>
+		<div>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>User</th>
+						<th>Weekly Goals</th>
+						<th>Daily Goals</th>
+						<th>Verify Goals</th>
+						<th>Done Goals</th>
+					</tr>
+				</thead>
+				{% for user in users %}				
+					<tr>
+						<td>{{user.username}}</td>
+						<td>
+							<ul>
+								{% for weekly_goal in weekly_goals %}
+									{% if weekly_goal.user == user %}
+										<li>
+											{{weekly_goal.goal_id}}: {{weekly_goal.goal_name}}
+											<a href=" {% url 'ogunsoladebayoscrumy:movegoal' weekly_goal.goal_id %} ">move</a>
+										</li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</td>
+						<td>
+							<ul>
+								{% for daily_goal in daily_goals %}
+									{% if daily_goal.user == user %}
+										<li>
+											{{daily_goal.goal_id}}: {{daily_goal.goal_name}}
+											<a href=" {% url 'ogunsoladebayoscrumy:movegoal' daily_goal.goal_id %} ">move</a>
+										</li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</td>
+						<td>
+							<ul>
+								{% for verify_goal in verify_goals %}
+									{% if verify_goal.user == user %}
+										<li>
+											{{verify_goal.goal_id}}: {{verify_goal.goal_name}}
+											<a href=" {% url 'ogunsoladebayoscrumy:movegoal' verify_goal.goal_id %} ">move</a>
+										</li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</td>
+						<td>	
+							<ul>
+								{% for done_goal in done_goals %}
+									{% if done_goal.user == user %}
+										<li>
+											{{done_goal.goal_id}}: {{done_goal.goal_name}}
+											<a href=" {% url 'ogunsoladebayoscrumy:movegoal' done_goal.goal_id %} ">move</a>
+										</li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</body>
+</html>
