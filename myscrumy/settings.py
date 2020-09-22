@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['18.217.236.141', '127.0.0.1', 'localhost']
 
 INSTALLED_APPS = [
     'ogunsoladebayoscrumy',
+    'websocket',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
