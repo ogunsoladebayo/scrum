@@ -29,25 +29,25 @@ def test(request):
 def connect(request):
     body = _parse_body(request.body)
     Connection.objects.create(connection_id=body['connectionId'])
-    return JsonResponse({'message': 'connected succussfully'}, status=200)
+    # return JsonResponse({'message': 'connected succussfully'}, status=200)
 
 
 @csrf_exempt
 def disconnect(request):
     body = _parse_body(request.body)
     Connection.objects.get(connection_id=body['connectionId']).delete()
-    return JsonResponse({'message': 'disconnected succussfully'}, status=200)
+    # return JsonResponse({'message': 'disconnected succussfully'}, status=200)
 
 
 @csrf_exempt
 def send_message(request):
     body = _parse_body(request.body)
-    ChatMessage.objects.create(username=body.username, message=body.content, timestamp=body.timestamp)
+    # ChatMessage.objects.create(username=body['username'], message=body['content'], timestamp=body['timestamp'])
     data = {'messages': [body]}
     connections = Connection.objects.all()
     for connection in connections:
         _send_to_connection(str(connection), data)
-    return JsonResponse({'message': data}, status=200)
+    # return JsonResponse({'message': data}, status=200)
 
 @csrf_exempt
 def get_messages(request):
@@ -56,4 +56,4 @@ def get_messages(request):
     connections = Connection.objects.all()
     for connection in connections:
         _send_to_connection(connection, data)
-    return JsonResponse({'messages': data})
+    # return JsonResponse({'messages': data})
