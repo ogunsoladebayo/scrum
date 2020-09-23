@@ -41,7 +41,7 @@ def disconnect(request):
 
 @csrf_exempt
 def send_message(request):
-    body = request.body
+    body = _parse_body(request.body)
     ChatMessage.objects.create(username=body['username'], message=body['content'], timestamp=body['timestamp'])
     data = {'messages': [body]}
     connections = Connection.objects.all()
