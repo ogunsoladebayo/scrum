@@ -42,7 +42,6 @@ def disconnect(request):
 @csrf_exempt
 def send_message(request):
     body = _parse_body(request.body)
-    print(body)
     ChatMessage.objects.create(message=body["body"]["content"], username=body["body"]["username"], timestamp=body["body"]["timestamp"])
     data = {'messages': [body]}
     connections = Connection.objects.all()
@@ -52,9 +51,8 @@ def send_message(request):
 
 @csrf_exempt
 def get_messages(request):
+    body = _parse_body(request.body)
     messages = [ obj.as_dict() for obj in ChatMessage.objects.all() ]
     data = {'messages': messages}
-    connections = Connection.objects.all()
-    for connection in connections:
-        _send_to_connection(str(connection), data)
+    _send_to_connection(body["connectionId"], data)
     # return JsonResponse({'messages': data})
