@@ -1,11 +1,14 @@
-from django.http.response import HttpResponseRedirect
+from django.http.response import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpRequest
 from .models import User, ScrumyGoals, ScrumyHistory, GoalStatus
 from random import randint
 from .forms import SignupForm, CreateGoalForm, MoveGoalForm
 from django.contrib.auth import hashers
 from django.contrib.auth.models import Group
+from django.views.decorators.csrf import csrf_exempt
+
+import json
 
 # Create your views here.
 
@@ -90,3 +93,9 @@ def home(request):
             'verify_goals': verify_goals, 'done_goals': done_goals}
 
     return render(request, 'ogunsoladebayoscrumy/home.html', data)
+
+@csrf_exempt
+def slack(request):
+    body_unicode = request.body.decode('utf-8')
+    body_data = json.loads(body_unicode)
+    return JsonResponse({"challenge": body_data["challenge"]}, safe=False)
