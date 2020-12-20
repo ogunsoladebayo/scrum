@@ -60,7 +60,7 @@
 								{% for verify_goal in verify_goals %}
 									{% if verify_goal.user == user %}
 										<li>
-											{% comment %} {{verify_goal.goal_id}}: {{verify_goal.goal_name}} {% endcomment %}
+											{{verify_goal.goal_id}}: {{verify_goal.goal_name}}
 											<a href=" {% url 'ogunsoladebayoscrumy:movegoal' verify_goal.goal_id %} ">move</a>
 										</li>
 									{% endif %}
